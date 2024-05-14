@@ -29,17 +29,28 @@ export class Punto1Component implements OnInit {
 
   }
   public agregarCarrito(producto: Producto): void {
+    // funcion agregar carrito, que va a recibir un producto de tipo producto(el tipo se definio en los entities)
     // agregar el producto a comprar al array productoCarrito
-    // let productoExistente = this.productoCarrito.find(prodAuxiliar => prodAuxiliar.id === producto.id);
-
+    
     let productoExistente = this.productoCarrito.find(prodAuxiliar => {
+      // verifica que el producto ya se encuentra cargado en el carrito o no, de entrada productoCarrito esta vacio
+      // hace un find y recorre cada uno de los  items, siempre es falso al princio, y va al else  y crea un producto
+      // la siguiente vez que ingresa ya esta cargado  
       console.log("prodAuxiliar ", prodAuxiliar.id);
       console.log("producto ", producto.id);
+      // despues va iterando cada item del carrito, e itera el id, si es igual id del producto que estoy comprando?
+      //  si es true significa que ya lo estoy comprando,, y como ya exite, no tiene que hacer de nuevo el push del else, sino que incrementa la cantidad
       return prodAuxiliar.id === producto.id
+
     });
     if (productoExistente) {
+      // si ya se encuentra el producto en el carrito, se incrementa la cantidad, 
+      // y la proxima vez que se haga click en el carrito
+      // no se agrega el producto, sino la cantidad
       productoExistente.cantidad++
     } else{
+      // si el producto no se encuentra en el array del carrito, 
+      // lo crea de cero como esta definido en ProductoCarrito y lo agrega al array de carrito con el push
       let iCarrito:ProductoCarrito={
         id: producto.id,
         nombre: producto.nombre,
@@ -51,5 +62,15 @@ export class Punto1Component implements OnInit {
 
     }
     console.log("productoCarrito ", this.productoCarrito);
+
+     
   }
+// Función para calcular el total
+   public calcularTotal(): number {
+    let total = 0;
+    for (const producto of this.productoCarrito) {
+      total += producto.precio || 0;
+    }
+    return total;
+}
 }
