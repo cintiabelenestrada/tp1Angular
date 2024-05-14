@@ -22,6 +22,7 @@ export class Punto1Component implements OnInit {
   ];
  
   productoCarrito: ProductoCarrito[] = [];
+  producto: Producto = new Producto;
 
   constructor() { }
 
@@ -44,14 +45,9 @@ export class Punto1Component implements OnInit {
 
     });
     if (productoExistente) {
-      // si ya se encuentra el producto en el carrito, se incrementa la cantidad, 
-      // y la proxima vez que se haga click en el carrito
-      // no se agrega el producto, sino la cantidad
       productoExistente.cantidad++
     } else{
-      // si el producto no se encuentra en el array del carrito, 
-      // lo crea de cero como esta definido en ProductoCarrito y lo agrega al array de carrito con el push
-      let iCarrito:ProductoCarrito={
+     let iCarrito:ProductoCarrito={
         id: producto.id,
         nombre: producto.nombre,
         img: producto.img,
@@ -59,10 +55,8 @@ export class Punto1Component implements OnInit {
         cantidad: 1
       }
       this.productoCarrito.push(iCarrito);
-
     }
     console.log("productoCarrito ", this.productoCarrito);
-
      
   }
 // Función para calcular el total
@@ -73,4 +67,17 @@ export class Punto1Component implements OnInit {
     }
     return total;
 }
+
+public duplicarCarrito(producto: Producto): void {
+  // Encuentra el producto en el carrito
+  const productoExistente = this.productoCarrito.find(prod => prod.id === producto.id);
+  if (productoExistente) {
+    const productoDuplicado = { ...productoExistente };
+    productoDuplicado.cantidad++;
+    this.productoCarrito.push(productoDuplicado);
+  } else {
+    this.agregarCarrito(producto);
+  }
+}
+
 }
