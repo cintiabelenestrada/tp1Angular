@@ -19,10 +19,13 @@
               <!-- Clase para listado sin bordes -->
               <ul class="list-group list-group-flush">
                 <li *ngFor="let producto of productoCarrito" class="list-group-item">
-                  {{ producto.nombre }} ${{ producto.precio }}</li>
-                  <!-- {{ producto.nombre }} ({{ producto.cantidad }} unidades) - ${{ producto.precio }}</li> -->
                   <!-- *ngFor itera sobre el array productos, y para cada producto,
                     genera un elemento de lista (<li>) con el nombre y el precio del producto. -->
+                  {{ producto.nombre }} ${{ producto.precio}}
+                  <!-- {{ producto.nombre }} ({{ producto.cantidad }} unidades) - ${{ producto.precio * producto.cantidad }}</li> -->
+                  <!-- <button type="button" class="btn btn-primary" (click)="duplicarCarrito(producto)">Duplicar Carrito</button> -->
+                </li>
+                  
               </ul>
               <!-- fin listado -->
             </div>
