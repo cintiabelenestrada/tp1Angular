@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { CarritoComponent } from '../carrito/carrito.component';
 import { Producto } from '../entities/productos';
 import { ProductoCarrito } from '../entities/productoCarrito';
 
 @Component({
   selector: 'app-punto1',
   standalone: true,
-  imports: [CommonModule, CarritoComponent],
+  imports: [CommonModule],
   templateUrl: './punto1.component.html',
   styleUrl: './punto1.component.css'
 })
