@@ -15,7 +15,6 @@ export class ProductoComponent {
   
   productos!: Producto[];
   
-
   constructor(private productosService: ProductoService) { }
 
   // ngOnInit(): void {
