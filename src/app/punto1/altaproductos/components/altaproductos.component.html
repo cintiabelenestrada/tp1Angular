@@ -1,0 +1,22 @@
+<form>
+    <label for="nombreProducto" class="form-label">Nombre Producto: </label>
+    <input type="text" [(ngModel)]="product.nombre" name="nombre" required />
+    <br>
+    <label for="descripcionProducto" class="form-label">Descripcion Producto: </label>
+    <input type="text" [(ngModel)]="product.descripcion" name="descripcion" required />
+    <br>
+    <label for="imagenProducto" class="form-label">Imagen Producto(url): </label>
+    <input type="text" [(ngModel)]="product.imagen" name="imagen" required />
+    <br>
+    <label for="precioProducto"class="form-label">precio del producto: </label>
+    <input type="number" [(ngModel)]="product.precio" name="precio" required />
+    <br>
+    <label for="stockProducto" class="form-label">Stock del producto: </label>
+    <input type="number" [(ngModel)]="product.stock" name="stock" required />
+    <br>
+    <label for="destacadoProducto" class="form-label">Producto destacado: </label>
+    <input type="checkbox" [(ngModel)]="product.destacado" name="destacado" />
+    <br>
+    <button type="submit" class="btn btn-primary" (click)="AltaProducto()">Agregar Producto</button>
+</form>
+  
