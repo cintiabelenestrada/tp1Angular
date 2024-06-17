@@ -1,22 +1,29 @@
-<form>
-    <label for="nombreProducto" class="form-label">Nombre Producto: </label>
-    <input type="text" [(ngModel)]="product.nombre" name="nombre" required />
-    <br>
-    <label for="descripcionProducto" class="form-label">Descripcion Producto: </label>
-    <input type="text" [(ngModel)]="product.descripcion" name="descripcion" required />
-    <br>
-    <label for="imagenProducto" class="form-label">Imagen Producto(url): </label>
-    <input type="text" [(ngModel)]="product.imagen" name="imagen" required />
-    <br>
-    <label for="precioProducto"class="form-label">precio del producto: </label>
-    <input type="number" [(ngModel)]="product.precio" name="precio" required />
-    <br>
-    <label for="stockProducto" class="form-label">Stock del producto: </label>
-    <input type="number" [(ngModel)]="product.stock" name="stock" required />
-    <br>
-    <label for="destacadoProducto" class="form-label">Producto destacado: </label>
-    <input type="checkbox" [(ngModel)]="product.destacado" name="destacado" />
-    <br>
-    <button type="submit" class="btn btn-primary" (click)="AltaProducto()">Agregar Producto</button>
+<h2>Alta de Productos</h2>
+<form #form class="border p-4 rounded bg-body-tertiary">
+    <div class="form-floating mb-2">
+        <input type="text"  class="form-control" id="nombre" name="nombre"  [(ngModel)]="product.nombre" required/>
+        <label for="nombreProducto" class="form-label">Nombre Producto: </label>
+    </div>
+    <div class="form-floating mb-2">
+        <input type="text"  class="form-control" id="descripcion" name="descripcion"  [(ngModel)]="product.descripcion" required />
+        <label for="descripcionProducto" class="form-label">Descripcion Producto: </label>
+    </div>
+    <div class="form-floating mb-2">
+        <input type="text" class="form-control" id="imagen" name="imagen"  [(ngModel)]="product.imagen"  required />
+        <label for="imagenProducto" class="form-label">Imagen Producto(url): </label>
+    </div>
+    <div class="form-floating mb-2">
+        <input type="number" class="form-control" id="precio" name="precio" [(ngModel)]="product.precio" required />
+        <label for="precioProducto"class="form-label">precio del producto: </label>
+    </div>
+    <div class="form-floating mb-2">
+        <input type="number" class="form-control" id="stock" name="stock" [(ngModel)]="product.stock" required />
+        <label for="stockProducto" class="form-label">Stock del producto: </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" [(ngModel)]="product.destacado" name="destacado">
+        <label class="form-check-label" for="flexCheckIndeterminate">Producto destacado?</label>
+      </div>
+    <button type="submit" class="btn btn-primary mx-auto" (click)="AltaProducto()">Agregar Producto</button>
 </form>
   
