@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AltatransaccionService } from '../services/altatransaccion.service';
-import { Monedas } from '../models/transaccion.model';
+import { Monedas, Transaccion } from '../models/transaccion.model';
 
 @Component({
   selector: 'app-altatransaccion',
@@ -11,11 +11,10 @@ import { Monedas } from '../models/transaccion.model';
 })
 export class AltatransaccionComponent {
   monedas: Monedas[] = [];
-
+  transacciones!: Transaccion[];
   constructor(private transaccionService: AltatransaccionService) {}
   
   obtenerMonedas() {
-    console.log('Monedas');
     this.transaccionService.getOrigenDestinoTransacciones().subscribe(
       (data: any) => {
         this.monedas = data;
@@ -26,5 +25,15 @@ export class AltatransaccionComponent {
       }
     );
   }
-
+  obtenerAllTransacciones(){
+    this.transaccionService.getAllTransacciones().subscribe(      
+      (data: any) => {
+        this.transacciones = data;
+        console.log("transacciones data",JSON.stringify(data));
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    );
+  }
 }
