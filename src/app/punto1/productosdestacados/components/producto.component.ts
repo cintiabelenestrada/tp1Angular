@@ -10,16 +10,15 @@ import { ProductoService } from '../services/producto.service';
   templateUrl: './producto.component.html',
   styleUrl: './producto.component.css'
 })
-export class ProductoComponent {
-// export class ProductoComponent implements OnInit  {
+export class ProductoComponent implements OnInit  {
   
   productos!: Producto[];
   
   constructor(private productosService: ProductoService) { }
 
-  // ngOnInit(): void {
-  //   this.getObtenerProductosDestacados();
-  // }
+  ngOnInit(): void {
+    this.getObtenerProductosDestacados();
+  }
 
   getObtenerProductosDestacados (){
     this.productosService.getObtenerProductosDestacados().subscribe( 

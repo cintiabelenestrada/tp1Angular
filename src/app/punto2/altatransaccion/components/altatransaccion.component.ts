@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AltatransaccionService } from '../services/altatransaccion.service';
 import { Monedas, Transaccion } from '../models/transaccion.model';
 
@@ -9,11 +9,14 @@ import { Monedas, Transaccion } from '../models/transaccion.model';
   templateUrl: './altatransaccion.component.html',
   styleUrl: './altatransaccion.component.css'
 })
-export class AltatransaccionComponent {
+export class AltatransaccionComponent implements OnInit {
   monedas: Monedas[] = [];
   transacciones!: Transaccion[];
   constructor(private transaccionService: AltatransaccionService) {}
   
+  ngOnInit(): void {
+    this.obtenerMonedas();
+  }
   obtenerMonedas() {
     this.transaccionService.getOrigenDestinoTransacciones().subscribe(
       (data: any) => {
