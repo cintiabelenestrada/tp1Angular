@@ -1,4 +1,4 @@
-export interface Listatransaccion {
+export interface ListaTransaccion {
     monedaOrigen: string;
     cantidadOrigen: number;
     monedaDestino: string;
