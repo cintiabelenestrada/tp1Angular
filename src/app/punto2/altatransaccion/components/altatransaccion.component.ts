@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AltatransaccionService } from '../services/altatransaccion.service';
-import { Monedas, Transaccion } from '../models/transaccion.model';
+import { Monedas } from '../models/transaccion.model';
 
 @Component({
   selector: 'app-altatransaccion',
@@ -11,7 +11,7 @@ import { Monedas, Transaccion } from '../models/transaccion.model';
 })
 export class AltatransaccionComponent implements OnInit {
   monedas: Monedas[] = [];
-  transacciones!: Transaccion[];
+  
   constructor(private transaccionService: AltatransaccionService) {}
   
   ngOnInit(): void {
@@ -28,15 +28,5 @@ export class AltatransaccionComponent implements OnInit {
       }
     );
   }
-  obtenerAllTransacciones(){
-    this.transaccionService.getAllTransacciones().subscribe(      
-      (data: any) => {
-        console.log("transacciones data transacciones",JSON.stringify(data.transacciones));
-        this.transacciones = data.transacciones;
-      },
-      (error: any) => {
-        console.error(error);
-      }
-    );
-  }
+  
 }

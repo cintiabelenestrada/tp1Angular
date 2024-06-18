@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Monedas, Transaccion } from '../models/transaccion.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +18,5 @@ export class AltatransaccionService {
     };
     return this._http.get('https://currency-converter18.p.rapidapi.com/api/v1/supportedCurrencies?=&=',httOptions);
   };
-  public getAllTransacciones(): Observable<any> {
-    return this._http.get('http://localhost:3000/api/transaccion');
-  }
+  
 }
