@@ -1,1 +1,19 @@
 <button type="button" id="productos" name="productos" (click)="obtenerAllTransacciones()">RECUPERAR TODOS</button>
+<div class="container">
+    <h2>Lista de Transacciones</h2>
+    <ul class="list-group">
+       
+        <li class="list-group-item">
+        @for (item of transacciones; track $index) { 
+            <p>Moneda Origen: {{ item.monedaOrigen }}</p>
+            <p>Cantidad Origen: {{ item.cantidadOrigen }}</p>
+            <p>Moneda Destino: {{ item.monedaDestino }}</p>
+            <p>Cantidad Destino: {{ item.cantidadDestino }}</p>
+            <p>Email Cliente: {{ item.emailCliente }}</p>
+            <p>Tasa de Conversión: {{ item.tasaConversion }}</p>
+         }    
+        </li>
+     
+    </ul>
+</div>
+  

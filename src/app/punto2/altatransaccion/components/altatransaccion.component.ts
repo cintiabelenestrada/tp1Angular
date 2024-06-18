@@ -31,8 +31,8 @@ export class AltatransaccionComponent implements OnInit {
   obtenerAllTransacciones(){
     this.transaccionService.getAllTransacciones().subscribe(      
       (data: any) => {
-        this.transacciones = data;
-        console.log("transacciones data",JSON.stringify(data));
+        console.log("transacciones data transacciones",JSON.stringify(data.transacciones));
+        this.transacciones = data.transacciones;
       },
       (error: any) => {
         console.error(error);
